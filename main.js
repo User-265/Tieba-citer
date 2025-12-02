@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         贴吧引用
 // @namespace    http://tampermonkey.net/
-// @version      1.2.2025.4.11
-// @description  按 标题\n作者\n链接\n时间 的格式复制贴子信息
+// @version      1.3.2025.12.2
+// @description  按html表格的格式的格式复制贴子信息（标题、作者、链接、时间）
 // @author       User-265 assisted by deepseek
 // @match        https://tieba.baidu.com/p/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=baidu.com
@@ -71,10 +71,13 @@
         const time1 = timeElem1?.textContent?.trim() || '';
         const time2 = timeElem2?.textContent?.trim() || '';
 
-        const output = `${title1}${title2}
-${link}
-${authorname}
-${time1}${time2}`;
+        const output = `\t\t\t<tr>
+\t\t\t\t<td>${title1}${title2}
+\t\t\t\t<td>${link}
+\t\t\t\t<td>${authorname}
+\t\t\t\t<td>${time1}${time2}
+\t\t\t</tr>`;
+
 
         navigator.clipboard.writeText(output)
             .then(() => {
