@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         贴吧引用
 // @namespace    http://tampermonkey.net/
-// @version      1.3.2025.12.2
+// @version      1.3.2025.12.4
 // @description  按html表格的格式的格式复制贴子信息（标题、作者、链接、时间）
 // @author       User-265 assisted by deepseek
 // @match        https://tieba.baidu.com/p/*
@@ -71,7 +71,7 @@
         const time1 = timeElem1?.textContent?.trim() || '';
         const time2 = timeElem2?.textContent?.trim() || '';
 
-        const output = `\t\t\t<tr>
+        const output = `<tr>
 \t\t\t\t<td>${title1}${title2}
 \t\t\t\t<td>${link}
 \t\t\t\t<td>${authorname}
